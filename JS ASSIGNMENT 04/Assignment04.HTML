@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dynamic CSS with Reset & Color Update</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: #3498db;
+            margin: 50px auto;
+            line-height: 200px;
+            color: white;
+            font-size: 18px;
+            border-radius: 10px;
+            transition: 0.4s ease;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            color: white;
+        }
+
+        .changeBtn {
+            background-color: #2ecc71;
+        }
+
+        .resetBtn {
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Dynamic CSS </h2>
+
+    <div id="box">Hello</div>
+
+    <button class="changeBtn" onclick="changeStyle()">Change Style</button>
+    <button class="resetBtn" onclick="resetStyle()">Reset</button>
+
+    <script>
+        const box = document.getElementById("box");
+
+        function getRandomColor() {
+            const letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function changeStyle() {
+            box.style.backgroundColor = getRandomColor();
+            box.style.color = getRandomColor();
+            box.style.width = "300px";
+            box.style.height = "300px";
+            box.style.lineHeight = "300px";
+            box.style.borderRadius = "50%";
+            box.innerText = "Color Updated!";
+        }
+
+        function resetStyle() {
+            box.style.backgroundColor = "#3498db";
+            box.style.color = "white";
+            box.style.width = "200px";
+            box.style.height = "200px";
+            box.style.lineHeight = "200px";
+            box.style.borderRadius = "10px";
+            box.innerText = "Hello";
+        }
+    </script>
+
+</body>
+
+</html>

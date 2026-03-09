@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dark Theme Toggle</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: 0.3s;
+        }
+
+        #app {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Light Theme */
+        .light {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Dark Theme */
+        .dark {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="light">
+        <p>This is a simple DOM manipulation assignment.</p>
+        <button id="toggleBtn">Switch Theme</button>
+    </div>
+
+    <script>
+        const app = document.getElementById("app");
+        const btn = document.getElementById("toggleBtn");
+
+        btn.addEventListener("click", function () {
+            if (app.classList.contains("light")) {
+                app.classList.remove("light");
+                app.classList.add("dark");
+            } else {
+                app.classList.remove("dark");
+                app.classList.add("light");
+            }
+        });
+    </script>
+</body>
+
+</html>
